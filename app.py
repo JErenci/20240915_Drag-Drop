@@ -4,7 +4,7 @@ import base64
 import datetime
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-df = pd.read_csv('https://git.io/Juf1t')
+# df = pd.read_csv('https://git.io/Juf1t')
 root_path = 'C:\\Users\\User\\Downloads\\'
 # csv_path = root_path+'DE_customers.csv'
 # df2 = pd.read_csv(csv_path, sep=';')
@@ -52,8 +52,8 @@ def parse_contents(contents, filename, date):
 
     if ('csv' in filename):
         print(8)
-        df_Out = pd.read_csv(root_path + filename, sep=';')
-        im = dash_table.DataTable(df.to_dict('records'))
+        df_Out = pd.read_csv(root_path + filename)#, sep=';')
+        im = dash_table.DataTable(df_Out.to_dict('records'), page_size=10)
     else:
         print('img')
         im = html.Img(src=contents)
